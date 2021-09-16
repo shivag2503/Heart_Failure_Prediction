@@ -1,0 +1,15 @@
+.heading {
+    font-size: 30px;
+    text-align:center;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.text {
+    padding-top: 50px;
+    text-align: left;
+}
+
+.image {
+    padding-top: 120px;
+}

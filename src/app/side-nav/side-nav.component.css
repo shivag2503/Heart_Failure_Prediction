@@ -1,0 +1,15 @@
+.my_nav {
+    background-color: rgb(224, 151, 151);
+}
+.my_nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.my_nav a:hover {
+    background-color: rgb(235, 176, 176);
+}
+
+.act a {
+    text-decoration: none;
+}

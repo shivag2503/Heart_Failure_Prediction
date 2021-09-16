@@ -1,0 +1,30 @@
+<nav class="navbar my_nav" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" routerLink="/about">
+        <img src="../../assets/heart.png" width="90" height="28"><b>Heart Failure Prediction</b>
+      </a>
+  
+      <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu act" #navMenu>
+        <div class="navbar-end">
+            <a class="navbar-item" routerLink="/about">
+              About
+            </a>
+      
+            <a class="navbar-item">
+              Visualization
+            </a>
+      
+            <a class="navbar-item" routerLink="/predict">
+                Prediction
+            </a>
+          </div>
+
+    </div>
+  </nav>

@@ -1,0 +1,496 @@
+<div class="container">
+  <h1 class="title">Prediction</h1>
+  <form [formGroup]="predictionForm" (ngSubmit)="predict()">
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Name"
+          formControlName="name"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Address</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Address"
+          formControlName="address"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Email"
+          formControlName="email"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Mobile</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Mobile"
+          formControlName="mobile"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Age</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Age"
+          formControlName="age"
+        />
+        <div
+          *ngIf="
+            predictionForm.controls['age'].touched &&
+            predictionForm.controls['age'].errors
+          "
+        >
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['age'].errors.required"
+          >
+            Age is required.
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['age'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['age'].errors.min"
+          >
+            Age can't be 0 or negative
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['age'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['age'].errors.max"
+          >
+            Age can't be greater than 150
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['age'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['age'].errors.pattern"
+          >
+            Age not valid
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="label">Anaemia</label>
+        <label class="radio">
+          <input
+            type="radio"
+            value="1"
+            name="anaemia"
+            formControlName="anaemia"
+          />
+          Yes
+        </label>
+        <label class="radio">
+          <input
+            type="radio"
+            value="0"
+            name="anaemia"
+            formControlName="anaemia"
+          />
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Creatinine Phosphokinase</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="CPK mcg/L"
+          formControlName="cpk"
+        />
+        <div
+          *ngIf="
+            predictionForm.controls['cpk'].touched &&
+            predictionForm.controls['cpk'].errors
+          "
+        >
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['cpk'].errors.required"
+          >
+            CPK is required.
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['cpk'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['cpk'].errors.max"
+          >
+            CPK can't be greater than 8000
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['cpk'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['cpk'].errors.pattern"
+          >
+            CPK is not valid
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="label">Diabetes</label>
+        <label class="radio">
+          <input
+            type="radio"
+            value="1"
+            name="diabetes"
+            formControlName="diabetes"
+          />
+          Yes
+        </label>
+        <label class="radio">
+          <input
+            type="radio"
+            value="0"
+            name="diabetes"
+            formControlName="diabetes"
+          />
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Ejection Fraction</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Ejection Fraction"
+          formControlName="ef"
+        />
+        <div
+          *ngIf="
+            predictionForm.controls['ef'].touched &&
+            predictionForm.controls['ef'].errors
+          "
+        >
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['ef'].errors.required"
+          >
+            Ejection Fraction is required.
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['ef'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['ef'].errors.max"
+          >
+            Ejection Fraction can't be greater than 100%
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['ef'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['ef'].errors.pattern"
+          >
+            Ejection Fraction is not valid
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="label">High Blood Pressure</label>
+        <label class="radio">
+          <input type="radio" value="1" name="hbp" formControlName="hbp" />
+          Yes
+        </label>
+        <label class="radio">
+          <input type="radio" value="0" name="hbp" formControlName="hbp" />
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Platelets</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Platelets"
+          formControlName="platelets"
+        />
+        <div
+          *ngIf="
+            predictionForm.controls['platelets'].touched &&
+            predictionForm.controls['platelets'].errors
+          "
+        >
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['platelets'].errors.required"
+          >
+            Platelets is required.
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['platelets'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['platelets'].errors.max"
+          >
+            Platelets can't be greater than 850000
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['platelets'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['platelets'].errors.pattern"
+          >
+            Platelets is not valid
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Serum Creatinine</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Serum Creatinine"
+          formControlName="sc"
+        />
+        <div
+          *ngIf="
+            predictionForm.controls['sc'].touched &&
+            predictionForm.controls['sc'].errors
+          "
+        >
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['sc'].errors.required"
+          >
+            Serum Creatinine is required.
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['sc'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['sc'].errors.max"
+          >
+            Platelets can't be greater than 10
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['sc'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['sc'].errors.pattern"
+          >
+            Serum Creatinine is not valid
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Serum Sodium</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Serum Sodium"
+          formControlName="ss"
+        />
+        <div
+          *ngIf="
+            predictionForm.controls['ss'].touched &&
+            predictionForm.controls['ss'].errors
+          "
+        >
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['ss'].errors.required"
+          >
+            Serum Sodium is required.
+          </div>
+        </div>
+        
+        
+        <div *ngIf="predictionForm.controls['ss'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['ss'].errors.max"
+          >
+            Serum Sodium can't be greater than 150
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['ss'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['ss'].errors.pattern"
+          >
+            Serum Sodium is not valid
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Time</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Follow-up Period"
+          formControlName="time"
+        />
+        <div
+          *ngIf="
+            predictionForm.controls['time'].touched &&
+            predictionForm.controls['time'].errors
+          "
+        >
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['time'].errors.required"
+          >
+            Time is required.
+          </div>
+        </div>
+       
+        <div *ngIf="predictionForm.controls['time'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['time'].errors.max"
+          >
+            time can't be greater than 365 days
+          </div>
+        </div>
+        <div *ngIf="predictionForm.controls['time'].errors">
+          <div
+            class="help is-danger"
+            *ngIf="predictionForm.controls['time'].errors.pattern"
+          >
+            time is not valid
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="label">Gender</label>
+        <label class="radio">
+          <input
+            type="radio"
+            value="0"
+            name="gender"
+            formControlName="gender"
+          />
+          Male
+        </label>
+        <label class="radio">
+          <input
+            type="radio"
+            value="1"
+            name="gender"
+            formControlName="gender"
+          />
+          Female
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="label">Smoking</label>
+        <label class="radio">
+          <input
+            type="radio"
+            value="1"
+            name="smoking"
+            formControlName="smoking"
+          />
+          Yes
+        </label>
+        <label class="radio">
+          <input
+            type="radio"
+            value="0"
+            name="smoking"
+            formControlName="smoking"
+          />
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link" [disabled]="!predictionForm.valid" type="submit">Submit</button>
+      </div>
+      <div class="control">
+        <button class="button is-link is-light" (click)="reset()" type="button">
+          Reset
+        </button>
+      </div>
+      <div class="control">
+        <button
+          class="button is-link is-light"
+          [disabled]="!predictionForm.valid"
+          (click)="showModal = true"
+          type="button"
+        >
+          Report
+        </button>
+      </div>
+
+      <app-modal
+        (onClose)="showModal = false"
+        *ngIf="showModal"
+        [data]="data"
+        [colValues]="colValues"
+      >
+      </app-modal>
+    </div>
+  </form>
+  <div>
+    <br />
+    <span class="is-success">{{ output }}</span>
+  </div>
+  <br />
+
+  <br />
+</div>

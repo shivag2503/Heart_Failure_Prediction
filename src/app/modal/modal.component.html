@@ -1,0 +1,16 @@
+<div (click)="onDismissClick()" class="modal is-active">
+    <div class="modal-background"></div>
+    <div (click)="$event.stopPropagation()" class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Report</p>
+        <button class="delete" aria-label="close" (click)="onDismissClick()"></button>
+      </header>
+      <section class="modal-card-body">
+       To view the report please click on download option...
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success" (click)="generatePDF()" type="button">Download</button>
+        <button class="button" (click)="onDismissClick()">Cancel</button>
+      </footer>
+    </div>
+  </div>

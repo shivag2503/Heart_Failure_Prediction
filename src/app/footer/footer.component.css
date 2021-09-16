@@ -1,0 +1,10 @@
+.my_footer {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: rgb(179, 114, 114);
+}
+
+.credits a {
+    text-decoration: none;
+    color: black;
+}
